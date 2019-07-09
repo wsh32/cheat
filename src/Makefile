@@ -3,11 +3,22 @@ CXXFLAGS = -Wall -Werror -std=c++14
 CHEAT_OBJS = sheet.o cheat.o
 CHEAT_BINARY = cheat
 
-cheat: $(CHEAT_OBJS)
-		$(CXX) $(CXXFLAGS) $(CHEAT_OBJS) -o $(CHEAT_BINARY) $(LDFLAGS)
+
+ifeq ($(PREFIX),)
+	PREFIX := /usr/local/bin
+endif
+
+%.o: %.cpp
+	$(CC) -c -g $(CXXFLAGS) -x c++ $< -o $@
+
+$(CHEAT_BINARY): $(CHEAT_OBJS)
+	$(CXX) $(CXXFLAGS) $(CHEAT_OBJS) -o $(CHEAT_BINARY) $(LDFLAGS)
 			
 clean:
-		rm -f $(CHEAT_BINARY) *.o *~
+	rm -f $(CHEAT_BINARY) *.o *~
 
-.PHONY: all clean test
+install: $(CHEAT_BINARY)
+	cp $(CHEAT_BINARY) $(PREFIX)/
+
+.PHONY: all clean install 
 
