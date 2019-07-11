@@ -40,7 +40,6 @@ void Sheet::edit() const {
 }
 
 bool Sheet::exists() const {
-    // TODO: Check if sheet exists before printing it
     return this->infile.good();
 }
 

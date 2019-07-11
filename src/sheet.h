@@ -4,8 +4,10 @@
 #include <vector>
 #include <fstream>
 
-#define DEFAULT_CHEAT_SHEET_PATH "~/.cheat/"
 #define DEFAULT_EDITOR "vim"
+
+#define DEFAULT_CHEAT_SHEET_PATH std::string(getenv("HOME"))+"/.cheat/"
+
 
 class Sheet {
     private:
