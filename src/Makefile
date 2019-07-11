@@ -9,7 +9,7 @@ ifeq ($(PREFIX),)
 endif
 
 %.o: %.cpp
-	$(CC) -c -g $(CXXFLAGS) -x c++ $< -o $@
+	$(CXX) -c -g $(CXXFLAGS) -x c++ $< -o $@
 
 $(CHEAT_BINARY): $(CHEAT_OBJS)
 	$(CXX) $(CXXFLAGS) $(CHEAT_OBJS) -o $(CHEAT_BINARY) $(LDFLAGS)
