@@ -1,3 +1,4 @@
+#include <cstring>
 #include <iostream>
 #include <string>
 
@@ -10,8 +11,14 @@ int main(int argc, char** argv) {
         cout << "No arguments provided!" << endl;
         exit(0);
     }
-    string filename = argv[1];
-    Sheet test_sheet(filename);
-    test_sheet.print();
+    if ((int) strcmp(argv[1], "-e") == 0) {
+        string filename = argv[2];
+        Sheet test_sheet(filename);
+        test_sheet.edit();
+    } else {
+        string filename = argv[1];
+        Sheet test_sheet(filename);
+        test_sheet.print();
+    }
 }
 

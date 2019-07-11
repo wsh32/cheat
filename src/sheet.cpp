@@ -26,7 +26,17 @@ void Sheet::print() const {
 }
 
 void Sheet::edit() const {
-    // TODO: Find editor, open editor
+    string editor;
+
+    if (getenv("EDITOR")) {
+        editor = getenv("EDITOR");
+    } else {
+        editor = DEFAULT_EDITOR;
+    }
+
+    string cmd = editor + " " + this->path;
+    cout << cmd << endl;
+    std::system(cmd.c_str());
 }
 
 bool Sheet::exists() const {

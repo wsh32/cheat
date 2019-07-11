@@ -4,7 +4,8 @@
 #include <vector>
 #include <fstream>
 
-#define DEFAULT_CHEAT_SHEET_PATH "/etc/cheatsheets/"
+#define DEFAULT_CHEAT_SHEET_PATH "~/.cheat/"
+#define DEFAULT_EDITOR "vim"
 
 class Sheet {
     private:
