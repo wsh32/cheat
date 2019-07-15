@@ -2,7 +2,9 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
+#include "colorize.h"
 #include "sheet.h"
 
 using namespace std;
@@ -11,6 +13,14 @@ Sheet::Sheet(string name) {
     this->name = name;
     this->path = DEFAULT_CHEAT_SHEET_PATH + name;
     this->infile = ifstream(this->path);
+    
+    if (this->exists()) {
+        std::ostringstream out;
+        out << this->infile.rdbuf();
+        this->data = out.str();
+    } else {
+        this->data = "Cheat sheet not found for " + this->name + "\n";
+    }
 }
 
 Sheet::~Sheet() {
@@ -18,11 +28,12 @@ Sheet::~Sheet() {
 }
 
 void Sheet::print() const {
-    if (this->exists()) {
-        cout << this->infile.rdbuf();
-    } else {
-        cout << "Cheat sheet not found for " << this->name << endl;
-    }
+    cout << this->data;
+}
+
+void Sheet::printColor() const {
+    // TODO insert syntax highlighting here
+    cout << this->data;
 }
 
 void Sheet::edit() const {
@@ -44,10 +55,12 @@ bool Sheet::exists() const {
 }
 
 vector<string> list() {
+    // TODO: List all available cheat sheets
     return vector<string>();
 }
 
 vector<string> list(const std::string &path) {
+    // TODO: List files in the path
     return vector<string>();
 }
 

@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -Wall -Werror -std=c++14
-CHEAT_OBJS = sheet.o cheat.o
+CHEAT_OBJS = sheet.o cheat.o colorize.o
 CHEAT_BINARY = cheat
 
 
