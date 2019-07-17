@@ -41,12 +41,15 @@ namespace colorize {
         INVERSE_OFF = 27
     };
 
+    struct Style {
+        colorize::Foreground fg;
+        colorize::Background bg;
+        colorize::Font font;
+    };
 
-    std::string colorString(const std::string& inString, const colorize::Foreground& fg,
-        const colorize::Background& bg, const colorize::Font& font);
-    void printColor(const std::string& inString, std::ostream& ostream, 
-        const colorize::Foreground& fg, const colorize::Background& bg, 
-        const colorize::Font& font);
+    std::string colorString(const std::string& inString, const colorize::Style& style);
+    void printColor(const std::string& inString, std::ostream& ostream,
+            const colorize::Style& style);
 };
 
 

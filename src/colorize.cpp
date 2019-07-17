@@ -3,16 +3,18 @@
 #include "colorize.h"
 
 
-std::string colorString(const std::string& inString, const colorize::Foreground& fg, 
-        const colorize::Background& bg, const colorize::Font& font) {
+std::string colorize::colorString(const std::string& inString, 
+        const colorize::Style& style) {
     // TODO: return formatted string
-    return "";
+    return colorize::ESC + std::to_string(style.fg) + colorize::DELIM + 
+        std::to_string(style.bg) + colorize::DELIM + std::to_string(style.font) + 
+        colorize::END + inString + colorize::ESC + std::to_string(colorize::NORMAL) + 
+        colorize::END;
 }
 
-void printColor(const std::string& inString, std::ostream& ostream,
-        const colorize::Foreground& fg, const colorize::Background& bg,
-        const colorize::Font& font) {
+void colorize::printColor(const std::string& inString, std::ostream& ostream,
+        const colorize::Style& style) {
     // TODO: print formatted string
-    ostream << std::endl;
+    ostream << colorize::colorString(inString, style);
 }
 

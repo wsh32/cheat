@@ -33,7 +33,7 @@ void Sheet::print() const {
 
 void Sheet::printColor() const {
     // TODO insert syntax highlighting here
-    cout << this->data;
+    colorize::printColor(this->data, cout, {colorize::RED_FG, colorize::BLUE_BG, colorize::UNDERLINE});
 }
 
 void Sheet::edit() const {
