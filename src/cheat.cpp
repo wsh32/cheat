@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
     } else {
         string filename = argv[1];
         Sheet test_sheet(filename);
-        test_sheet.print();
+        test_sheet.printColor();
     }
 }
 

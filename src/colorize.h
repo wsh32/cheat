@@ -10,6 +10,7 @@ namespace colorize {
     const std::string END = "m";
 
     enum Foreground {
+        DEFAULT_FG = -1,
         BLACK_FG = 30,
         RED_FG = 31,
         GREEN_FG = 32,
@@ -17,10 +18,12 @@ namespace colorize {
         BLUE_FG = 34,
         MAGENTA_FG = 35,
         CYAN_FG = 36,
-        WHITE_FG = 37
+        WHITE_FG = 37,
+        GRAY_FG = 90
     };
 
     enum Background {
+        DEFAULT_BG = -1,
         BLACK_BG = 40,
         RED_BG = 41,
         GREEN_BG = 42,
@@ -28,10 +31,12 @@ namespace colorize {
         BLUE_BG = 44,
         MAGENTA_BG = 45,
         CYAN_BG = 46,
-        WHITE_BG = 47
+        WHITE_BG = 47,
+        GRAY_BG = 100
     };
 
     enum Font {
+        DEFAULT = -1,
         NORMAL = 0,
         BOLD = 1,
         UNDERLINE = 4,
@@ -42,6 +47,7 @@ namespace colorize {
     };
 
     struct Style {
+        Style(): fg(DEFAULT_FG), bg(DEFAULT_BG), font(DEFAULT) {};
         colorize::Foreground fg;
         colorize::Background bg;
         colorize::Font font;
