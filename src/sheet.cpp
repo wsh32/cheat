@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <cstring>
 
 #include "colorize.h"
 #include "sheet.h"
@@ -33,7 +34,20 @@ void Sheet::print() const {
 
 void Sheet::printColor() const {
     // TODO insert syntax highlighting here
-    colorize::printColor(this->data, cout, {colorize::RED_FG, colorize::BLUE_BG, colorize::UNDERLINE});
+    std::string tmp;
+    std::stringstream ss(this->data);
+
+    while (std::getline(ss, tmp, '\n')) {
+        colorize::Style style;
+        if (tmp[0] == '#') {
+            style.fg = colorize::GRAY_FG;
+        } else {
+            style.fg = colorize::WHITE_FG;
+        }
+        colorize::printColor(tmp, cout, style);
+    }
+
+
 }
 
 void Sheet::edit() const {
