@@ -1,6 +1,14 @@
 
-# Created by https://www.gitignore.io/api/c++
-# Edit at https://www.gitignore.io/?templates=c++
+# Created by https://www.toptal.com/developers/gitignore/api/bazel,c++,vim
+# Edit at https://www.toptal.com/developers/gitignore?templates=bazel,c++,vim
+
+### Bazel ###
+# gitignore template for Bazel build system
+# website: https://bazel.build/
+
+# Ignore all bazel-* symlinks. There is no full list since this can change
+# based on the name of the directory bazel is cloned into.
+/bazel-*
 
 ### C++ ###
 # Prerequisites
@@ -36,11 +44,25 @@
 *.out
 *.app
 
-# Build directories
-bin/*
-build/*
+### Vim ###
+# Swap
+[._]*.s[a-v][a-z]
+!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
 
-# Vim
-*.swp
+# Session
+Session.vim
+Sessionx.vim
 
-# End of https://www.gitignore.io/api/c++
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+
+# End of https://www.toptal.com/developers/gitignore/api/bazel,c++,vim
